@@ -1,0 +1,110 @@
+/*
+ * Globale Grundstile fuer den ganzen Kurs (reines Layout).
+ * Kopieren nach src/assets/main.css, Import ganz oben in src/main.js.
+ * Vue-spezifische Regeln kommen im Kurs dazu:
+ * die Router-Klasse in Kapitel 4, die Transitions in Kapitel 7.
+ */
+
+/* Schrift, Textfarbe, Inhalt mittig mit maximaler Breite */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1e293b;
+}
+
+#app {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Listen ohne Aufzaehlungspunkte */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Luft fuer Links, Knoepfe und Eingabefelder */
+section > a {
+  display: block;
+}
+
+button {
+  margin-left: 0.5rem;
+}
+
+input {
+  margin: 0.5rem 0;
+}
+
+/* Navigation und Seiteninhalt (ab Kapitel 4) */
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+main {
+  padding: 1rem 0;
+}
+
+a {
+  color: #0e9682;
+}
+
+/* Formulare (ab Kapitel 5) */
+form {
+  display: grid;
+  gap: 1rem;
+  max-width: 28rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.field input {
+  margin: 0;
+}
+
+form button {
+  justify-self: start;
+  margin-left: 0;
+}
+
+fieldset {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Fehlermeldungen: global, weil mehrere Formulare sie nutzen */
+.error {
+  color: #dc2626;
+  margin: 0;
+}
+
+/* Kapitel 4: Vue Router setzt die Klasse auf den Link zur aktuellen Seite */
+.router-link-exact-active {
+  font-weight: bold;
+}
+
+/* Kapitel 7, Fade-Uebergang: global, weil Filter-Panel und Seitenwechsel ihn nutzen */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Wer im System "Bewegung reduzieren" eingestellt hat, bekommt keine Animationen */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
