@@ -18,13 +18,6 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
-      path: '/movies/:id/edit',
-      name: 'movie-edit',
-      component: () => import('@/views/EditMovieView.vue'),
-      props: true,
-      meta: { requiresAuth: true },
-    },
-    {
       path: '/movies/:id',
       component: () => import('@/views/MovieDetailView.vue'),
       props: true,

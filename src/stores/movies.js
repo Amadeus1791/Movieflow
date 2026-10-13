@@ -42,11 +42,6 @@ export const useMovieStore = defineStore('movies', () => {
     movies.value.push({ ...movie, id: Date.now() })
   }
 
-  function updateMovie(changed) {
-    const index = movies.value.findIndex((movie) => movie.id === changed.id)
-    if (index !== -1) movies.value[index] = changed
-  }
-
   // jede Aenderung an der Liste im Browser sichern
   watch(
     movies,
@@ -66,7 +61,6 @@ export const useMovieStore = defineStore('movies', () => {
     toggleWatchlist,
     removeMovie,
     addMovie,
-    updateMovie,
   }
 })
 

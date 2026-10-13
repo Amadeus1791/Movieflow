@@ -22,7 +22,6 @@ useDocumentTitle(pageTitle)
   <p v-else-if="!movie">Movie not found.</p>
   <article v-else>
     <h2>{{ movie.title }} ({{ movie.year }})</h2>
-    <RouterLink :to="{ name: 'movie-edit', params: { id } }">Edit movie</RouterLink>
     <nav class="tabs">
       <RouterLink :to="{ name: 'movie-detail', params: { id } }">Info</RouterLink>
       <RouterLink :to="{ name: 'movie-similar', params: { id } }"> Similar </RouterLink>

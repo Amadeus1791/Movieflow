@@ -3,26 +3,18 @@ import { ref, computed, nextTick, useTemplateRef } from 'vue'
 import { validateMovie } from '@/utils/validateMovie.js'
 import BaseInput from '@/components/BaseInput.vue'
 
-const props = defineProps({
-  saving: Boolean,
-  movie: { type: Object, default: null },
-})
+defineProps({ saving: Boolean })
 const emit = defineEmits(['save'])
 
 const genres = ['Drama', 'Comedy', 'Sci-Fi', 'Thriller']
-// Bearbeiten: eine Kopie des Films, nie das Objekt aus dem Store selbst
-const form = ref(
-  props.movie
-    ? { ...props.movie }
-    : {
-        title: '',
-        year: null,
-        genre: '',
-        rating: 7,
-        inWatchlist: false,
-        notes: '',
-      },
-)
+const form = ref({
+  title: '',
+  year: null,
+  genre: '',
+  rating: 7,
+  inWatchlist: false,
+  notes: '',
+})
 
 const submitted = ref(false)
 const touched = ref({})
